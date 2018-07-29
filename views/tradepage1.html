@@ -1,0 +1,1017 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+  <title>Node Authentication</title>
+  <link rel="stylesheet" href="../styles/sheets/bootstrap.css"> <!-- load bootstrap css -->
+  <link rel="stylesheet" href="../styles/sheets/font-awesome.min.css"> <!-- load fontawesome -->
+  <style>
+    body{
+        //padding-top:80px;
+        word-wrap:break-word;
+        background-color: #f5f5f5;
+    }
+    @font-face{
+
+        font-family: "panton-bold";
+        src: url("../styles/fonts/Panton-BlackCaps.otf");
+
+    }
+    hr{
+
+        margin-top:10px;
+        margin-bottom:10px;
+
+    }
+    .zlogo{
+
+            display:block;
+            margin:0px auto;
+            width:260px;
+            margin-top:0px;
+            margin-bottom:20px;
+
+    }
+    .page-header{
+
+        border-bottom:0px;
+
+    }
+    .well{
+
+        background:white;
+        margin-left: -20px;
+
+    }
+    .head{
+
+        font-size:22px;
+        text-align:center;
+        font-family: "panton-bold";
+
+    }
+    .logotbtn{
+
+        margin-right:-80%;
+
+    }
+    .trlpnlh{
+
+        text-align:center;
+
+    }
+    .trlpnl{
+
+        font-size:12px;
+
+    }
+    .rnd{
+
+        width: 40px;
+        margin-right:8px;
+
+    }
+    h3{
+
+        text-align:center;
+        font-size:16px;
+        font-weight:bold;
+        margin-bottom:20px;
+        margin-top:0px;
+
+    }
+    .trdiv{
+
+        padding-left:8px;
+        padding-top:5px;
+        padding-bottom:7px;
+        margin-bottom:8px;
+        width:145px;
+        height:45px;
+        color:white;
+        border-radius:3px;
+        position: relative;
+        z-index: 1;
+        font-size:13px;
+
+    }
+    .quo{
+
+         width:25px;
+         margin-right:5px;
+         vertical-align:-5px;
+
+    }
+    .bol{
+
+         width:25px;
+         margin-right:5px;
+
+    }
+
+    .po{
+
+        width:32px;
+        margin-right:5px;
+        vertical-align: -12px;
+
+    }
+    .inv{
+
+        width: 30px;
+        margin-right: 5px;
+        margin-top: 1px;
+        vertical-align: -12px;
+
+    }
+    .quodiv{
+
+        background:#A87CFF;
+        border:1px solid #A87CFF;
+
+    }
+    .purdiv{
+
+        background:#879AFD;
+        border:1px solid #879AFD;
+
+    }
+    .invdiv{
+
+        background:#00DBA5;
+        border:1px solid #00DBA5;
+
+    }
+    .agrdiv{
+
+        background:#FF4881;
+        border:1px solid #FF4881;
+
+    }
+    .bildiv{
+
+        background:#5F51FF;
+        border:1px solid #5F51FF;
+
+    }
+
+    .icspc{
+
+        margin-right:5px;
+
+    }
+    .aprbtn, .rejbtn, .dnldbtn, .dnldbtn_2 {
+
+        width:100px;
+        height: 45px;
+        text-align:left;
+        color:white;
+        padding-left:7px;
+        padding-top:7px;
+        padding-bottom:7px;
+        border-radius:3px;
+        font-size:13px;
+    }
+    .aprimg, .rejimg, .upimg, .agrimg, .dnldimg{
+
+        width:25px;
+        margin-right:5px;
+
+    }
+    .dnldimg{
+
+        vertical-align: -3px;
+
+    }
+
+    .aprbtn{
+
+        background:#00DBA5;
+        border:1px solid #00DBA5;
+        margin-left:-7px;
+        margin-right: -10px;
+
+    }
+    .rejbtn{
+
+        background:#FF6E70;
+        border:1px solid #FF6E70;
+        margin-left: 15px;
+        margin-right: -20px;
+        width: 90px;
+
+    }
+    .dnldbtn{
+
+        width:115px;
+        background:white;
+        border:1px solid lightgray;
+        color:black;
+        position:relative;
+        left:-129px;
+        padding-top:8px;
+
+    }
+    .dnldbtn_2{
+
+        width:140px;
+        background:white;
+        border:1px solid lightgray;
+        color:black;
+        padding-top:8px;
+        position: relative;
+        top: -45px;
+        left: -5px;
+
+    }
+
+    .upurbtn, .vagrbtn, .vbilbtn{
+
+        width:200px;
+        height: 45px;
+        text-align:left;
+        color:black;
+        padding-left:10px;
+        padding-top:7px;
+        padding-bottom:7px;
+        border-radius:3px;
+        margin-left:-8px;
+        border:1px solid lightgray;
+        background:white;
+        font-size:13px;
+
+    }
+
+    .dcont{
+
+        margin-top:8px;
+        margin-left:-35px;
+        width:390px;
+
+    }
+    .dline{
+
+        border:1px solid lightgray;
+        width:40px;
+        display:inline-block;
+        height:0px;
+
+    }
+    .ddot{
+
+        border:1px solid lightgray;
+        width:7px;
+        height:7px;
+        border-radius:50%;
+        background:lightgray;
+        display:inline-block;
+        margin-bottom:-2px;
+        margin-left:-1px;
+    }
+    .dtxt{
+
+        font-size:12px;
+        text-align:center;
+        vertical-align: -2px;
+        width:275px;
+        display:inline-block;
+
+    }
+    .rdline{
+
+        border:1px solid lightgray;
+        width:25px;
+        display:inline-block;
+        height:0px;
+
+    }
+    .rddot{
+
+        border:1px solid lightgray;
+        width:7px;
+        height:7px;
+        border-radius:50%;
+        background:lightgray;
+        display:inline-block;
+        margin-bottom:-2px;
+        margin-left:-1px;
+
+    }
+    input[type=file]::-webkit-file-upload-button {
+
+            color:white;
+            background:#666666;
+            border:1px solid #666666;
+            border-radius:3px;
+
+    }
+    .mupbtn{
+
+        margin-top:20px;
+        background:white;
+        border:1px solid lightgray;
+
+    }
+
+    .popover {
+    		color: white;
+    		background: #5D7CFF;
+    		width:250px;
+		}
+		.popover.top .arrow::after{
+
+			border-top-color: #5D7CFF;
+
+		}
+		.popover-content::before{
+
+			content:" ";
+			background:url("../styles/images/Tip.png") no-repeat;
+			background-size:contain;
+			height:40px;
+			width:40px;
+			display: inline-block;
+			vertical-align:top;
+			float:left;
+			margin-right:5px;
+
+		}
+		.modal-header {
+
+    		border-bottom: 1px solid white;
+
+		}
+		#uplshow{
+
+        	margin-top:5px;
+        	text-align:center;
+        	display:none;
+
+        }
+		.loadergif{
+
+        	text-align:center;
+        	width:150px;
+        	margin-top: -30px;
+
+        }
+        .loaderbtngif{
+
+            width:30px;
+            position:absolute;
+            top:5px;
+            right:0px;
+            display:none;
+        }
+        .agrtxt{
+
+            line-height:2px;
+
+        }
+        .container {
+            width: 1300px;
+        }
+        .dnldcont{
+
+            display:inline-block;
+            line-height:14px;
+
+        }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header text-center">
+      <img src="../styles/images/zeonlab_logo.png" class="zlogo">
+      <h1 class="head">Trade Dashboard</h1>
+      <a href="/profile" class="btn btn-default btn-sm">Back To Profile Dashboard</a>
+      <a href="/logout" class="btn btn-danger btn-sm logotbtn">Logout</a>
+    </div>
+
+    <div class="row">
+
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-3">
+        <div class="well" style="width:280px;">
+          <p class="trlpnlh"><strong>Trade session id:</strong><br> <%= id %></p>
+            <p class="trlpnl"><img src="../styles/images/Bank.png" class="rnd"><strong> Seller Bank:</strong><%= bank_id %></p><hr>
+            <p class="trlpnl"><img src="../styles/images/Bank.png" class="rnd"><strong> Buyer Bank:</strong><%= buyerbank_id %></p><hr>
+            <p class="trlpnl"><img src="../styles/images/User.png" class="rnd"><strong> Seller:</strong> <%= seller_id %></p><hr>
+            <p class="trlpnl"><img src="../styles/images/User.png" class="rnd"><strong> Buyer:</strong> <%= buyer_id %></p><hr>
+            <p class="trlpnl"><img src="../styles/images/Logistic.png" class="rnd"><strong> Shipper:</strong> <%= shipper_id %></p><hr>
+            <p class="trlpnlh"><strong>Current Trade Status:</strong><br><status> <%= status %></status></p>
+            <input type="hidden" id="senderpage" value="<%= senderpage %>"></input>
+            <input type="hidden" id="quote" value="<%=quotation%>"></input>
+            <input type="hidden" id="status" value="<%=status%>"></input>
+            <input type="hidden" id="po" value="<%=po%>"></input>
+          </div>
+          </div>
+          <div class="col-sm-9">
+          <div class="well" style="width: 1000px;margin-left:-50px;">
+              <div data-toggle="popover" style="cursor:pointer;position:absolute;right:40px;" data-html="true" data-placement="top" data-trigger="hover" data-content="This document will get permanently
+                stored in the blockchain only when the parties involved approve it.">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+              </div>
+                <h3>Trade in Progress</h3>
+            <div id="QNUdemo">
+              <div class="row" id="quotation_row">
+                  <div class="col-sm-2">
+                      <div class="trdiv quodiv"><img src="../styles/images/QUO.png" class="quo">Quotation</div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="dcont">
+                        <div class="dline"></div><div class="ddot"></div>
+                        <span class="dtxt">Received Quotation from Seller</span>
+                        <div class="rddot"></div><div class="rdline"></div>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <button id="uploadquotation" class="btn upurbtn" data-toggle="modal" data-target="#uploadmodal"><img src="../styles/images/Upload.png" class="upimg">Upload Quotation
+                          <img src="../styles/images/loader.gif" class="loaderbtngif"></button>
+                      <div id="confirm_qtn">
+                      <button class="btn aprbtn"><img src="../styles/images/Approve.png" class="aprimg">Approve</button>
+                      <button class="btn rejbtn" data-toggle="modal" data-target="#rejectmodal"><img src="../styles/images/Reject.png" class="rejimg">Reject</button>
+                      </div>
+                  </div>
+                  <div class="col-sm-2">
+                      <button class="btn dnldbtn"><img src="../styles/images/Download.png" class="dnldimg"><div class="dnldcont">Download<br/> from Server</div></button>
+                      <button class="btn dnldbtn_2"><img src="../styles/images/Download.png" class="dnldimg"><div class="dnldcont">Download<br/> from Blockchain</div></button>
+                  </div>
+              </div>
+              <div class="row" id="purchase_row">
+                  <div class="col-sm-2">
+                      <div class="trdiv purdiv"><img src="../styles/images/PO.png" class="po">Purchase Order</div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="dcont">
+                        <div class="dline"></div><div class="ddot"></div>
+                        <span class="dtxt">Purchase Order Uploaded Seller to Approve</span>
+                        <div class="rddot"></div><div class="rdline"></div>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <button class="btn upurbtn" data-toggle="modal" data-target="#uploadmodal"><img src="../styles/images/Upload.png" class="upimg">Upload Purchase Order
+                      <img src="../styles/images/loader.gif" class="loaderbtngif"></button>
+                      <div id="confirm_po">
+                      <button class="btn aprbtn"><img src="../styles/images/Approve.png" class="aprimg">Approve</button>
+                      <button class="btn rejbtn"><img src="../styles/images/Reject.png" class="rejimg">Reject</button>
+                      </div>
+                  </div>
+                  <div class="col-sm-2">
+                      <button class="btn dnldbtn"><img src="../styles/images/Download.png" class="dnldimg">Download</button>
+                      <button class="btn dnldbtn_2"><img src="../styles/images/Download.png" class="dnldimg">Download</button>
+                  </div>
+              </div>
+                <div class="row" id="invoice_row">
+                  <div class="col-sm-2">
+                      <div class="trdiv invdiv"><img src="../styles/images/Invoice.png" class="inv">Invoice</div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="dcont">
+                        <div class="dline"></div><div class="ddot"></div>
+                        <span class="dtxt">Invoice Received from Seller</span>
+                        <div class="rddot"></div><div class="rdline"></div>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <button class="btn upurbtn" data-toggle="modal" data-target="#uploadmodal"><img src="../styles/images/Upload.png" class="upimg">Upload Invoice
+                      <img src="../styles/images/loader.gif" class="loaderbtngif"></button>
+                      <div id="confirm_inv">
+                      <button class="btn aprbtn"><img src="../styles/images/Approve.png" class="aprimg">Approve</button>
+                      <button class="btn rejbtn"><img src="../styles/images/Reject.png" class="rejimg">Reject</button>
+                      </div>
+                  </div>
+                  <div class="col-sm-2">
+                      <button class="btn dnldbtn"><img src="../styles/images/Download.png" class="dnldimg">Download</button>
+                      <button class="btn dnldbtn_2"><img src="../styles/images/Download.png" class="dnldimg">Download</button>
+                  </div>
+              </div>
+                <div class="row" id="agreement_row">
+                  <div class="col-sm-2">
+                      <div class="trdiv agrdiv"><img src="../styles/images/QUO.png" class="quo"><div class="dnldcont">Financial<br/> Agreement</div></div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="dcont">
+                        <div class="dline"></div><div class="ddot"></div>
+                        <span class="dtxt">Received Agreement from Bank</span>
+                        <div class="rddot"></div><div class="rdline"></div>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <button class="btn upurbtn" data-toggle="modal" data-target="#Agreementmodal"><img src="../styles/images/Upload.png" class="upimg">Update Agreement
+                          <img src="../styles/images/loader.gif" class="loaderbtngif"></button>
+                      <button class="btn vagrbtn"><img src="../styles/images/Agreement.png" class="agrimg">View Agreement</button>
+                      <div id="confirm_agr">
+                      <button class="btn aprbtn"><img src="../styles/images/Approve.png" class="aprimg">Approve</button>
+                      <button class="btn rejbtn"><img src="../styles/images/Reject.png" class="rejimg">Reject</button>
+                      </div>
+                  </div>
+                  <div class="col-sm-2">
+
+                  </div>
+              </div>
+                <div class="row" id="bill_row">
+                  <div class="col-sm-2">
+                      <div class="trdiv bildiv"><img src="../styles/images/QUO.png" class="bol">Bill of Lading</div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="dcont">
+                        <div class="dline"></div><div class="ddot"></div>
+                        <span class="dtxt">Received Bill of Lading</span>
+                        <div class="rddot"></div><div class="rdline"></div>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <button class="btn upurbtn" data-toggle="modal" data-target="#Agreementmodal"><img src="../styles/images/Upload.png" class="upimg">Upload Agreement</button>
+                      <div id="confirm_bill">
+                      <button class="btn aprbtn"><img src="../styles/images/Approve.png" class="aprimg">Approve</button>
+                      <button class="btn rejbtn"><img src="../styles/images/Reject.png" class="rejimg">Reject</button>
+                      </div>
+                  </div>
+                  <div class="col-sm-2">
+                      <button class="btn dnldbtn"><img src="../styles/images/Download.png" class="dnldimg">Download</button>
+                      <button class="btn dnldbtn_2"><img src="../styles/images/Download.png" class="dnldimg">Download</button>
+                  </div>
+              </div>
+            </div>
+
+            <div id="QNU" style="display:none">
+              <form action = "/fileupload" method = "POST" enctype = "multipart/form-data">
+               <input type="hidden" name="senderpage" value="quotation"></input>
+               <input type="hidden" name="id" value=<%= id %>></input>
+               <strong>Browse Quotation doc:</strong><input type="file" name="file" />
+               <br />
+               <input type = "submit" value = "Upload File" />
+             </form>
+           </div>
+           <div id="QU" style="display:none">
+            <form action= "/filedownload" method = "POST" enctype = "multipart/form-data">
+              <input type="hidden" name="kychash" value=<%= quotation %>></input>
+              <input type = "submit" value = "Download Quotation">
+            </form>
+          </div>
+          <div id="QA" style="display:none">
+            <form action = "/approvetrade" method = "POST" enctype = "multipart/form-data">
+              <input type="hidden" name="trade_id" value=<%= id %>></input>
+              <input type="hidden" name="approvaltype" value="Q"></input>
+              <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+              <input type = "submit" value = "Approve Quotation" />
+            </form>
+            <form action = "/rejecttrade" method = "POST" enctype = "multipart/form-data">
+              <input type="hidden" name="trade_id" value=<%= id %>></input>
+              <input type="hidden" name="approvaltype" value="Q"></input>
+              <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+              <input type = "submit" value = "Reject Quotation" />
+            </form>
+          </div>
+          <div id="PNU" style="display:none">
+            <h3><span class="fa fa-upload"> Upload Purchase Order: </span></h3>
+            <form action = "/fileupload" method = "POST" enctype = "multipart/form-data">
+             <input type="hidden" name="senderpage" value="po"></input>
+             <input type="hidden" name="id" value=<%= id %>></input>
+             <strong>Browse Purchase Order doc:</strong><input type="file" name="file" />
+             <br />
+             <input type = "submit" value = "Upload File" />
+           </form>
+         </div>
+         <div id="PU" style="display:none">
+          <strong>Uploaded Purchase Order: </strong><%= po %><br>
+          <form action= "/filedownload" method = "POST" enctype = "multipart/form-data">
+            <input type="hidden" name="kychash" value=<%= po %>></input>
+            <input type = "submit" value = "Download Purchase Order">
+          </form>
+        </div>
+        <div id="PA" style="display:none">
+          <form action = "/approvetrade" method = "POST" enctype = "multipart/form-data">
+            <input type="hidden" name="trade_id" value=<%= id %>></input>
+            <input type="hidden" name="approvaltype" value="P"></input>
+            <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+            <input type = "submit" value = "Approve Purchase Order" />
+          </form>
+          <form action = "/rejecttrade" method = "POST" enctype = "multipart/form-data">
+            <input type="hidden" name="trade_id" value=<%= id %>></input>
+            <input type="hidden" name="approvaltype" value="P"></input>
+            <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+            <input type = "submit" value = "Reject Purchase Order" />
+          </form>
+        </div>
+        <div id="INU" style="display:none">
+          <h3><span class="fa fa-upload"> Upload Invoice: </span></h3>
+          <form action = "/fileupload" method = "POST" enctype = "multipart/form-data">
+           <input type="hidden" name="senderpage" value="invoice"></input>
+           <input type="hidden" name="id" value=<%= id %>></input>
+           <strong>Browse Invoice doc:</strong><input type="file" name="file" />
+           <br />
+           <input type = "submit" value = "Upload File" />
+         </form>
+       </div>
+       <div id="IU" style="display:none">
+        <strong>Uploaded Invoice: </strong><br><%= invoice %><br>
+        <form action= "/filedownload" method = "POST" enctype = "multipart/form-data">
+          <input type="hidden" name="kychash" value=<%= invoice %>></input>
+          <input type = "submit" value = "Download Invoice">
+        </form>
+      </div>
+      <div id="IA" style="display:none">
+        <form action = "/approvetrade" method = "POST" enctype = "multipart/form-data">
+          <input type="hidden" name="trade_id" value=<%= id %>></input>
+          <input type="hidden" name="approvaltype" value="I"></input>
+          <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+          <input type = "submit" value = "Approve Invoice" />
+        </form>
+        <form action = "/rejecttrade" method = "POST" enctype = "multipart/form-data">
+          <input type="hidden" name="trade_id" value=<%= id %>></input>
+          <input type="hidden" name="approvaltype" value="I"></input>
+          <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+          <input type = "submit" value = "Reject Invoice" />
+        </form>
+      </div>
+      <div id="IAA" style="display:none">
+        <form action = "/approvetrade" method = "POST" enctype = "multipart/form-data">
+          <input type="hidden" name="trade_id" value=<%= id %>></input>
+          <input type="hidden" name="approvaltype" value="IA"></input>
+          <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+          <input type = "submit" value = "Approve Invoice approved by Buyer" />
+        </form>
+        <form action = "/rejecttrade" method = "POST" enctype = "multipart/form-data">
+          <input type="hidden" name="trade_id" value=<%= id %>></input>
+          <input type="hidden" name="approvaltype" value="IA"></input>
+          <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+          <input type = "submit" value = "Reject Invoice approved by Buyer" />
+        </form>
+      </div>
+      <div id="LOCNU" style="display:none">
+        <h3><span class="fa fa-upload"> Upload Letter of Credit: </span></h3>
+        <form action="/letterofcredit" method="post">
+         <div class="form-group">
+            <input type="hidden" name="trade_id" value=<%= id %>></input>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="buyer" value=<%= buyer_id %>>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="seller" value=<%= seller_id %>>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="buyerBank" value=<%= buyerbank_id %>>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="sellerBank" value=<%= bank_id %>>
+          </div>
+          <div class="form-group">
+            <label>Time Period in days before expiry</label>
+            <input type="number" class="form-control" name="timePeriod">
+          </div>
+          <div class="form-group">
+            <label>Credit Amount</label>
+            <input type="number" class="form-control" name="creditAmount">
+          </div>
+          <button type="submit" class="btn btn-warning btn-lg">Submit</button>
+        </form>
+        <form action = "/fileupload" method = "POST" enctype = "multipart/form-data">
+         <strong>Browse Letter of Credit doc:</strong><input type="file" name="file" />
+         <input type = "submit" value = "Construct the Letter of Credit" />
+       </form>
+     </div>
+     <div id="LOCU" style="display:none">
+      <strong>Uploaded Letter Of Credit: </strong><br><%= letterofcredit %><br>
+      <form action= "/filedownload" method = "POST" enctype = "multipart/form-data">
+        <input type="hidden" name="kychash" value=<%= letterofcredit %>></input>
+        <input type = "submit" value = "Download Letter of Credit">
+      </form>
+    </div>
+    <div id="LOCA" style="display:none">
+      <form action = "/approvetrade" method = "POST" enctype = "multipart/form-data">
+        <input type="hidden" name="trade_id" value=<%= id %>></input>
+        <input type="hidden" name="approvaltype" value="L"></input>
+        <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+        <input type = "submit" value = "Approve Letter Of Credit" />
+      </form>
+      <form action = "/rejecttrade" method = "POST" enctype = "multipart/form-data">
+        <input type="hidden" name="trade_id" value=<%= id %>></input>
+        <input type="hidden" name="approvaltype" value="L"></input>
+        <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+        <input type = "submit" value = "Reject Letter Of Credit" />
+      </form>
+    </div>
+    <div id="BOLNU" style="display:none">
+      <h3><span class="fa fa-upload"> Upload Bill of Lading: </span></h3>
+      <form action = "/fileupload" method = "POST" enctype = "multipart/form-data">
+       <input type="hidden" name="senderpage" value="bol"></input>
+       <input type="hidden" name="id" value=<%= id %>></input>
+       <strong>Browse Bill of Lading doc:</strong><input type="file" name="file" />
+       <br />
+       <input type = "submit" value = "Upload File" />
+     </form>
+   </div>
+   <div id="BOLU" style="display:none">
+    <strong>Uploaded Bill Of Lading: </strong><br><%= billoflading %><br>
+    <form action= "/filedownload" method = "POST" enctype = "multipart/form-data">
+      <input type="hidden" name="kychash" value=<%= billoflading %>></input>
+      <input type = "submit" value = "Download Letter of Credit">
+    </form>
+  </div>
+  <div id="BOLA" style="display:none">
+    <form action = "/approvetrade" method = "POST" enctype = "multipart/form-data">
+      <input type="hidden" name="trade_id" value=<%= id %>></input>
+      <input type="hidden" name="approvaltype" value="B"></input>
+      <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+      <input type = "submit" value = "Approve Bill Of Lading" />
+    </form>
+    <form action = "/rejecttrade" method = "POST" enctype = "multipart/form-data">
+      <input type="hidden" name="trade_id" value=<%= id %>></input>
+      <input type="hidden" name="approvaltype" value="B"></input>
+      <input type="hidden" name="senderpage" value=<%= senderpage %>></input>
+      <input type = "submit" value = "Reject Bill Of Lading" />
+    </form>
+  </div>
+</p>
+</div>
+</div>
+<div class="col-sm-6">
+  <div id="tradecomplete" class="well" style="display:none">
+    <strong>Congratulations!!! Trade Process Complete </strong>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<!-- Modal -->
+<div id="uploadmodal" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="width:400px;">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		</div>
+      <div class="modal-body">
+        <div>
+            <div id="uplshow">
+                <img src="../styles/images/loader.gif" class="loadergif">
+                <p>Pls hang on while we upload this document<br/>
+                    on to blockchain. This document will then<br/>
+                    be immutable and permanent. This<br/>
+                    may take a few minutes. </p>
+                <h4>You can close this window now</h4>
+            </div>
+            <div id="uplhide">
+                <form action="/fileupload" method="post" enctype="multipart/form-data">
+                    <input type="file" class="form-control" name="file" required>
+                    <button class="btn mupbtn" type="submit"><img src="../styles/images/Upload.png" class="upimg">Upload</button>
+                </form>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div id="rejectmodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		</div>
+      <div class="modal-body">
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!--Agreement Modal -->
+<div id="Agreementmodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <form action="/letterofcredit" method="post">
+         <div class="form-group">
+            <input type="hidden" name="trade_id" value=<%= id %>></input>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="buyer" value=<%= buyer_id %>>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="seller" value=<%= seller_id %>>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="buyerBank" value=<%= buyerbank_id %>>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="sellerBank" value=<%= bank_id %>>
+          </div>
+          <div class="form-group">
+                <input type="number" class="form-control" name="timePeriod" placeholder="Time Period in days before expiry">
+          </div>
+          <div class="form-group">
+                <input type="number" class="form-control" name="creditAmount" placeholder="Credit Amount">
+          </div>
+          <button type="submit" class="btn btn-warning btn-lg">Submit</button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+<script type="text/javascript" src="../styles/js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="../styles/js/bootstrap.js"></script>
+<script>
+        $(document).ready(function(){
+    		$('[data-toggle="popover"]').popover();
+		});
+		$(".mupbtn").submit(function(){
+
+		    $('#uplhide').hide();
+		    $('#uplshow').show();
+
+		});
+
+  console.log(document.getElementById("status").value);
+  console.log(document.getElementById("senderpage").value);
+  switch(document.getElementById("status").value){
+    case "Quotation Not Uploaded"   :   if(document.getElementById("senderpage").value=="Seller")
+    document.getElementById("QNU").style.display = "block";
+    break;
+    case "Quotation Uploaded"       :   document.getElementById("QU").style.display="block";
+    if(document.getElementById("senderpage").value=="Buyer")
+      document.getElementById("QA").style.display = "block";
+    break;
+    case "Quotation Approved"       :   document.getElementById("QU").style.display="block";
+    if(document.getElementById("senderpage").value=="Buyer")
+      document.getElementById("PNU").style.display = "block";
+    break;
+    case "Purchase Order Uploaded"  :   document.getElementById("QU").style.display="block";
+    document.getElementById("PU").style.display="block";
+    if(document.getElementById("senderpage").value=="Seller")
+      document.getElementById("PA").style.display = "block";
+    break;
+    case "Purchase Order Approved"  :   document.getElementById("QU").style.display="block";
+    document.getElementById("PU").style.display="block";
+    if(document.getElementById("senderpage").value=="Seller")
+      document.getElementById("INU").style.display = "block";
+    break;
+    case "Invoice Uploaded"         :   document.getElementById("QU").style.display="block";
+    document.getElementById("PU").style.display="block";
+    document.getElementById("IU").style.display="block";
+    if(document.getElementById("senderpage").value=="Buyer")
+      document.getElementById("IA").style.display = "block";
+    break;
+    case "Invoice Approved by Buyer"         :   document.getElementById("QU").style.display="block";
+    document.getElementById("PU").style.display="block";
+    document.getElementById("IU").style.display="block";
+    if(document.getElementById("senderpage").value=="Bank")
+      document.getElementById("IAA").style.display = "block";
+    break;
+    case "Invoice Approved":   document.getElementById("QU").style.display="block";
+    document.getElementById("PU").style.display="block";
+    document.getElementById("IU").style.display="block";
+    if(document.getElementById("senderpage").value=="Buyer Bank")
+      document.getElementById("LOCNU").style.display = "block";
+    break;
+    case "Letter Of Credit Uploaded":   document.getElementById("QU").style.display="block";
+    document.getElementById("PU").style.display="block";
+    document.getElementById("IU").style.display="block";
+    switch(document.getElementById("senderpage").value){
+      case "Buyer Bank":
+      case "Seller"    :document.getElementById("LOCU").style.display = "block";
+      break;
+      case "Bank"      :document.getElementById("LOCU").style.display = "block";
+      document.getElementById("LOCA").style.display = "block";
+      break;
+
+    }
+    break;
+    case "Letter Of Credit Approved":   document.getElementById("QU").style.display="block";
+    document.getElementById("PU").style.display="block";
+    document.getElementById("IU").style.display="block";
+    switch(document.getElementById("senderpage").value){
+      case "Buyer Bank":
+      case "Bank"      :
+      case "Seller"    :document.getElementById("LOCU").style.display = "block";
+      break;
+      case "Shipper"   :document.getElementById("BOLNU").style.display = "block";
+      break;
+    }
+    break;
+    case "Bill Of Lading Uploaded":     document.getElementById("QU").style.display="block";
+    document.getElementById("PU").style.display="block";
+    document.getElementById("IU").style.display="block";
+    switch(document.getElementById("senderpage").value){
+      case "Buyer Bank":
+      case "Bank"      :
+      case "Seller"    :document.getElementById("LOCU").style.display = "block";
+      break;
+    }
+    document.getElementById("BOLU").style.display="block";
+    if(document.getElementById("senderpage").value=="Buyer")
+      document.getElementById("BOLA").style.display = "block";
+    break;
+    case "Bill Of Lading Approved":     document.getElementById("QU").style.display="block";
+    document.getElementById("PU").style.display="block";
+    document.getElementById("IU").style.display="block";
+    switch(document.getElementById("senderpage").value){
+      case "Buyer Bank":
+      case "Bank"      :
+      case "Seller"    :document.getElementById("LOCU").style.display = "block";
+      break;
+    }
+    document.getElementById("BOLU").style.display="block";
+    break;
+    case "Payment Successful":
+switch(document.getElementById("senderpage").value){
+      case "Buyer Bank":
+      case "Bank"      :
+      case "Seller"    :document.getElementById("LOCU").style.display = "block";
+      break;
+    }
+document.getElementById("tradecomplete").style.display="block";
+break;
+  }
+
+   //console.log(<%= senderpage %>);
+
+
+   /*****BC Logic**
+   var status = "Quotation Not Uploaded";
+   var role = "Buyer Bank";
+
+
+    if(status == "Quotation Not Uploaded")
+    {
+
+        $("#purchase_row, #invoice_row, #agreement_row, #bill_row").css("opacity","0.5");
+        $("#purchase_row .btn, #invoice_row .btn, #agreement_row .btn , #bill_row .btn").prop('disabled', true);
+
+        if(role == "Buyer")
+        {
+
+            $("#quotation_row #confirm_qtn").show();
+            $("#quotation_row .upurbtn").hide();
+            $("#invoice_row #confirm_inv").show();
+            $("#invoice_row .upurbtn").hide();
+            $("#agreement_row .upurbtn").hide();
+            $("#agreement_row .vagrbtn").show();
+            $("#bill_row #confirm_bill").show();
+            $("#bill_row .upurbtn").hide();
+
+
+        }
+        if(role == "Seller")
+        {
+
+            $("#quotation_row .dnldbtn").css("opacity","0.5");
+            $("#quotation_row .dnldbtn").prop('disabled', true);
+
+        }
+        if(role == "Buyer Bank")
+        {
+
+            $("#quotation_row #confirm_qtn").show();
+            $("#quotation_row .upurbtn").hide();
+            $("#invoice_row #confirm_inv").show();
+            $("#invoice_row .upurbtn").hide();
+            $("#agreement_row .upurbtn").hide();
+            $("#agreement_row .vagrbtn").show();
+            $("#bill_row #confirm_bill").show();
+            $("#bill_row .upurbtn").hide();
+
+        }
+        if(role == "Seller Bank")
+        {
+
+            $("#quotation_row #confirm_qtn").hide();
+            $("#quotation_row .upurbtn").show();
+            $("#invoice_row #confirm_inv").show();
+            $("#invoice_row .upurbtn").hide();
+            $("#agreement_row .upurbtn").hide();
+            $("#agreement_row .vagrbtn").show();
+            $("#bill_row #confirm_bill").show();
+            $("#bill_row .upurbtn").hide();
+
+        }
+
+    }
+
+***/
+
+ </script>
+ </html>
